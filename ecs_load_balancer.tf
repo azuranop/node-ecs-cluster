@@ -16,9 +16,9 @@ resource "aws_alb" "application_load_balancer" {
 # Creating a security group for the load balancer:
 resource "aws_security_group" "load_balancer_security_group" {
 
-#  name        = "${var.flavor}-vpc_ecs_task_worker"
-#  description = "ECS Allowed Ports"
-  vpc_id      = "${aws_vpc.ecs_vpc.id}"
+  #  name        = "${var.flavor}-vpc_ecs_task_worker"
+  #  description = "ECS Allowed Ports"
+  vpc_id = aws_vpc.ecs_vpc.id
 
   ingress {
     from_port   = 80 # Allowing traffic in from port 80

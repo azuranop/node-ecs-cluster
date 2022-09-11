@@ -1,9 +1,12 @@
+
+# Task
+
 resource "aws_ecs_task_definition" "ecs_task" {
   family                   = "ecs-task" # Naming our first task
   container_definitions    = <<DEFINITION
   [
     {
-      "name": "my-first-task",
+      "name": "ecs-task",
       "image": "614769341246.dkr.ecr.eu-central-1.amazonaws.com/ecr-repo:latest",
       "essential": true,
       "portMappings": [
