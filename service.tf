@@ -7,9 +7,7 @@ resource "aws_ecs_service" "ecs_service" {
   desired_count   = 1 # Setting the number of containers we want deployed to 3
 
   network_configuration {
-    subnets = [aws_subnet.private_subnet_1.id, aws_subnet.private_subnet_2.id]
-    #subnets          = ["subnet-eb9d0082", "subnet-9e68dbe5", "subnet-e43303ae"]
-    #subnets          = [data.aws_subnet.private_subnet_a.id,data.aws_subnet.private_subnet_b.id,data.aws_subnet.private_subnet_c.id]
+    subnets          = [aws_subnet.private_subnet_1.id, aws_subnet.private_subnet_2.id]
     assign_public_ip = true # Providing our containers with public IPs
   }
 }

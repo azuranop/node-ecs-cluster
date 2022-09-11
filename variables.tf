@@ -49,8 +49,7 @@ variable "ecs_cluster_name" {
   default     = "ecs-cluster"
 }
 
-#
-
+# Sets AWS Region
 
 variable "region" {
   description = "AWS Region"
