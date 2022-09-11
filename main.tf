@@ -1,6 +1,6 @@
 provider "aws" {
   version = "~> 2.0"
-  region  = "eu-central-1" # Setting my region to London. Use your own region here
+  region  = var.region
 }
 
 /*resource "aws_ecr_repository" "ecr_repo" {
@@ -8,6 +8,6 @@ provider "aws" {
 }*/
 
 resource "aws_ecs_cluster" "ecs_cluster" {
-  name = "ecs-cluster" # Naming the cluster
+  name = var.ecs_cluster_name # Naming the cluster
 }
 
