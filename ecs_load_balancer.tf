@@ -1,8 +1,8 @@
 
-#
+# Application Load Balancer
 
 resource "aws_alb" "application_load_balancer" {
-  name               = "lb-tf"
+  name               = "ecs-lb"
   load_balancer_type = "application"
   subnets = [ # Referencing the default subnets
     "${aws_subnet.private_subnet_1.id}",
