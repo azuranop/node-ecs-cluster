@@ -2,24 +2,25 @@
 # Task
 
 resource "aws_ecs_task_definition" "ecs_task" {
-  family                   = "ecs-task" # Naming our first task
-  container_definitions    = <<DEFINITION
-  [
-    {
-      "name": "ecs-task",
-      "image": "614769341246.dkr.ecr.eu-central-1.amazonaws.com/ecr-repo:latest",
-      "essential": true,
-      "portMappings": [
-        {
-          "containerPort": 3000,
-          "hostPort": 3000
-        }
-      ],
-      "memory": 512,
-      "cpu": 256
-    }
-  ]
-  DEFINITION
+  family = "ecs-task" # Naming our first task
+  container_definitions = jsonencode(
+    [
+      {
+        name       = "ecs-task"
+        image      = "614769341246.dkr.ecr.eu-central-1.amazonaws.com/ecr-repo:latest"
+        essential  = true
+        entryPoint = ["/"]
+        portMappings = [
+          {
+            containerPort = 3000
+            hostPort      = 3000
+          }
+        ]
+        memory = 512
+        cpu    = 256
+      }
+  ])
+
   requires_compatibilities = ["FARGATE"] # Stating that we are using ECS Fargate
   network_mode             = "awsvpc"    # Using awsvpc as our network mode as this is required for Fargate
   memory                   = 512         # Specifying the memory our container requires

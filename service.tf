@@ -23,9 +23,9 @@ resource "aws_ecs_service" "ecs_service" {
 
 resource "aws_security_group" "service_security_group" {
 
-  #  name        = "${var.flavor}-vpc_ecs_task_worker"
-  #  description = "ECS Allowed Ports"
-  vpc_id = aws_vpc.ecs_vpc.id
+  name        = var.ecs_service_security_group
+  description = "ECS Allowed Ports"
+  vpc_id      = aws_vpc.ecs_vpc.id
 
   ingress {
     from_port = 0

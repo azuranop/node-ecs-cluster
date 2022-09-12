@@ -1,3 +1,6 @@
+
+# Variables
+
 variable "vpc_name" {
   description = "Name of VPC"
   type        = string
@@ -55,4 +58,18 @@ variable "region" {
   description = "AWS Region"
   type        = string
   default     = "eu-central-1"
+}
+
+# Security groups
+
+variable "load_balancer_security_group" {
+  description = "Security Group"
+  type        = string
+  default     = "load_balancer_sg"
+}
+
+variable "ecs_service_security_group" {
+  description = "ECS Service Security Group"
+  type        = string
+  default     = "ecs_service_sg"
 }
