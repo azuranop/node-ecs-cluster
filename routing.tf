@@ -1,6 +1,4 @@
 
-# Routing table
-
 # Internet Gateway for the public subnet
 resource "aws_internet_gateway" "gw" {
   provider = aws.region
@@ -11,6 +9,7 @@ resource "aws_internet_gateway" "gw" {
   }
 }
 
+# Routing table
 resource "aws_route_table" "web" {
   vpc_id = aws_vpc.ecs_vpc.id
 

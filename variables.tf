@@ -13,12 +13,6 @@ variable "vpc_cidr" {
   default     = "10.0.0.0/16"
 }
 
-variable "vpc_azs" {
-  description = "Availability zones for VPC"
-  type        = list(string)
-  default     = ["eu-central-1a", "eu-central-1b", "eu-central-1c"]
-}
-
 variable "vpc_private_subnets" {
   description = "Private subnets for VPC"
   type        = list(string)
@@ -98,9 +92,18 @@ variable "profile" {
   default     = "default"
 }
 
-# Availability Zones
+# Load Balancer
 
-/*data "aws_availability_zones" "azs" {
-  provider = var.region
-  state    = "available"
-}*/
+variable "load_balancer_name" {
+  description = "Load Balancer name"
+  type        = string
+  default     = "ecs-lb"
+}
+
+variable "ecs_port" {
+  description = "ECS port"
+  type        = number
+  default     = 80
+}
+
+variable "app_lb_tg" {}

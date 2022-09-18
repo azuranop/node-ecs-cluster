@@ -2,7 +2,8 @@
 # Application Load Balancer
 
 resource "aws_alb" "application_load_balancer" {
-  name               = "ecs-lb"
+  provider           = aws.region
+  name               = var.load_balancer_name
   load_balancer_type = "application"
   subnets = [ # Referencing the default subnets
     "${aws_subnet.private_subnet_1.id}",
@@ -11,6 +12,10 @@ resource "aws_alb" "application_load_balancer" {
   ]
   # Referencing the security group
   security_groups = ["${aws_security_group.load_balancer_security_group.id}"]
+
+  tags = {
+    Name = "ECS-Application-LB"
+  }
 }
 
 # Creating a security group for the load balancer:
@@ -21,8 +26,8 @@ resource "aws_security_group" "load_balancer_security_group" {
   vpc_id      = aws_vpc.ecs_vpc.id
 
   ingress {
-    from_port   = 80 # Allowing traffic in from port 80
-    to_port     = 80
+    from_port   = var.ecs_port # Allowing traffic in from port 80
+    to_port     = var.ecs_port
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"] # Allowing traffic in from all sources
   }
