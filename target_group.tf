@@ -21,4 +21,6 @@ resource "aws_lb_listener" "listener" {
     type             = "forward"
     target_group_arn = aws_lb_target_group.target_group.arn # Referencing our target group
   }
+
+  depends_on = [aws_alb.application_load_balancer]
 }

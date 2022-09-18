@@ -1,4 +1,8 @@
 
+# Blog
+
+https://medium.com/avmconsulting-blog/how-to-deploy-a-dockerised-node-js-application-on-aws-ecs-with-terraform-3e6bceb48785
+
 For routing issues:
 
 https://stackoverflow.com/questions/68834461/no-internet-access-to-load-balancer-aws

@@ -1,9 +1,11 @@
-# Providing a reference to our default VPC
-#resource "aws_vpc" "vpc-4f078526" {
-#}
+
+
+# VPC
 
 resource "aws_vpc" "ecs_vpc" {
-  cidr_block = var.vpc_cidr
+  cidr_block           = var.vpc_cidr
+  enable_dns_support   = true
+  enable_dns_hostnames = true
 
   tags = {
     Name = "VPC for ecs"
@@ -14,14 +16,6 @@ resource "aws_vpc" "ecs_vpc" {
 # Providing a reference to our default subnets
 resource "aws_subnet" "subnet-eb9d0082" {
   availability_zone = var.vpc_azs[0]
-}
-
-resource "aws_subnet" "subnet-9e68dbe5" {
-  availability_zone = var.vpc_azs[1]
-}
-
-resource "aws_subnet" "subnet-e43303ae" {
-  availability_zone = var.vpc_azs[2]
 }
 */
 

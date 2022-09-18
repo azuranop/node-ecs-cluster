@@ -73,3 +73,34 @@ variable "ecs_service_security_group" {
   type        = string
   default     = "ecs_service_sg"
 }
+
+# Roles
+
+variable "ecs_task_execution_role_name" {
+  description = "ECS task execution role name"
+  type        = string
+  default     = "myEcsTaskExecutionRole"
+}
+
+# ECS Service
+
+variable "ecs_service_name" {
+  description = "ECS service name"
+  type        = string
+  default     = "ecs_service"
+}
+
+# Profile
+
+variable "profile" {
+  description = "Profile (default)"
+  type        = string
+  default     = "default"
+}
+
+# Availability Zones
+
+/*data "aws_availability_zones" "azs" {
+  provider = var.region
+  state    = "available"
+}*/

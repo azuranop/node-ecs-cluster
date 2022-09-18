@@ -26,6 +26,7 @@ resource "aws_ecs_task_definition" "ecs_task" {
   memory                   = 512         # Specifying the memory our container requires
   cpu                      = 256         # Specifying the CPU our container requires
   execution_role_arn       = aws_iam_role.ecsTaskExecutionRole.arn
+  task_role_arn            = aws_iam_role.ecs_task_role.arn # Important needed to access ECR
 }
 
 resource "aws_iam_role" "ecsTaskExecutionRole" {
