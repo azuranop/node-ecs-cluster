@@ -13,3 +13,6 @@ https://stackoverflow.com/questions/57950586/security-group-does-not-appear-to-b
 
 https://docs.docker.com/get-started/02_our_app/
 
+#
+
+https://engineering.finleap.com/posts/2020-02-20-ecs-fargate-terraform/

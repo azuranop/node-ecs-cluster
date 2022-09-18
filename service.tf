@@ -1,6 +1,6 @@
 
 resource "aws_ecs_service" "ecs_service" {
-  name            = "ecs-service"                        # Naming our first service
+  name            = var.ecs_service_name                        # Naming our first service
   cluster         = aws_ecs_cluster.ecs_cluster.id       # Referencing our created Cluster
   task_definition = aws_ecs_task_definition.ecs_task.arn # Referencing the task our service will spin up
   launch_type     = "FARGATE"
